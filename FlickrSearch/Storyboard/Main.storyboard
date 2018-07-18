@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GAD-7Z-LHa">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List View Controller-->
+        <scene sceneID="lG8-k2-Vki">
+            <objects>
+                <viewController id="dUl-kd-ukp" customClass="ListViewController" customModule="FlickrSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AtX-WW-ucm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-ca-8mX">
+                                <rect key="frame" x="0.0" y="64" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dUl-kd-ukp" id="yAg-BH-xWK"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3U8-Pn-7EN">
+                                <rect key="frame" x="0.0" y="120" width="414" height="616"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1L6-Qv-lpf">
+                                    <size key="itemSize" width="373" height="113"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ListViewCell" reuseIdentifier="customCellIdeifierWithImageView" id="kfX-Ke-9N7" customClass="ListViewCell" customModule="FlickrSearch" customModuleProvider="target">
+                                        <rect key="frame" x="20.666666666666668" y="0.0" width="373" height="113"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="113"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="de9-ov-SVt" userLabel="firstImageView1" customClass="CustomImageView" customModule="FlickrSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="8.0000000000000071" y="8" width="113.66666666666669" height="96"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="flm-Cw-gpQ" userLabel="firstImageView2" customClass="CustomImageView" customModule="FlickrSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="129.66666666666666" y="8" width="114" height="96"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJ6-pZ-X4L" userLabel="firstImageView3" customClass="CustomImageView" customModule="FlickrSearch" customModuleProvider="target">
+                                                    <rect key="frame" x="251.66666666666666" y="8" width="113.33333333333334" height="96"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="vJ6-pZ-X4L" firstAttribute="centerY" secondItem="kfX-Ke-9N7" secondAttribute="centerY" id="0L4-6D-xss"/>
+                                            <constraint firstAttribute="trailing" secondItem="vJ6-pZ-X4L" secondAttribute="trailing" constant="8" id="2wi-AY-AOb"/>
+                                            <constraint firstItem="vJ6-pZ-X4L" firstAttribute="centerY" secondItem="kfX-Ke-9N7" secondAttribute="centerY" id="IEm-wx-3Nq"/>
+                                            <constraint firstItem="flm-Cw-gpQ" firstAttribute="leading" secondItem="de9-ov-SVt" secondAttribute="trailing" constant="8" id="VTX-HV-HKA"/>
+                                            <constraint firstItem="vJ6-pZ-X4L" firstAttribute="leading" secondItem="flm-Cw-gpQ" secondAttribute="trailing" constant="8" id="VvO-j7-Kfe"/>
+                                            <constraint firstItem="flm-Cw-gpQ" firstAttribute="centerY" secondItem="kfX-Ke-9N7" secondAttribute="centerY" id="WQV-MG-71f"/>
+                                            <constraint firstItem="vJ6-pZ-X4L" firstAttribute="width" secondItem="de9-ov-SVt" secondAttribute="width" id="X3X-Tr-vth"/>
+                                            <constraint firstItem="de9-ov-SVt" firstAttribute="centerY" secondItem="kfX-Ke-9N7" secondAttribute="centerY" id="YJk-bO-sob"/>
+                                            <constraint firstItem="flm-Cw-gpQ" firstAttribute="height" secondItem="de9-ov-SVt" secondAttribute="height" id="ann-lU-WnO"/>
+                                            <constraint firstItem="de9-ov-SVt" firstAttribute="top" secondItem="kfX-Ke-9N7" secondAttribute="topMargin" id="ce6-83-g0g"/>
+                                            <constraint firstItem="vJ6-pZ-X4L" firstAttribute="height" secondItem="de9-ov-SVt" secondAttribute="height" id="gQ0-Er-B4B"/>
+                                            <constraint firstItem="flm-Cw-gpQ" firstAttribute="centerY" secondItem="kfX-Ke-9N7" secondAttribute="centerY" id="h5r-7n-qyO"/>
+                                            <constraint firstItem="de9-ov-SVt" firstAttribute="leading" secondItem="kfX-Ke-9N7" secondAttribute="leading" constant="8" id="pbB-wF-zal"/>
+                                            <constraint firstItem="flm-Cw-gpQ" firstAttribute="width" secondItem="de9-ov-SVt" secondAttribute="width" id="qyh-pq-rzs"/>
+                                            <constraint firstItem="flm-Cw-gpQ" firstAttribute="centerY" secondItem="de9-ov-SVt" secondAttribute="centerY" id="uvd-vk-B5l"/>
+                                            <constraint firstItem="vJ6-pZ-X4L" firstAttribute="centerY" secondItem="flm-Cw-gpQ" secondAttribute="centerY" id="xaW-9e-9QU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView1" destination="de9-ov-SVt" id="0Fa-sy-ig8"/>
+                                            <outlet property="imageView2" destination="flm-Cw-gpQ" id="bgH-Ha-Z5f"/>
+                                            <outlet property="imageView3" destination="vJ6-pZ-X4L" id="72I-ck-YGx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="dUl-kd-ukp" id="uJB-My-BRO"/>
+                                    <outlet property="delegate" destination="dUl-kd-ukp" id="9jY-P1-gfv"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rtq-ca-8mX" firstAttribute="trailing" secondItem="scB-c5-Gzy" secondAttribute="trailing" id="3fi-UF-XSA"/>
+                            <constraint firstItem="3U8-Pn-7EN" firstAttribute="bottom" secondItem="scB-c5-Gzy" secondAttribute="bottom" id="AS9-Cr-Ots"/>
+                            <constraint firstItem="3U8-Pn-7EN" firstAttribute="top" secondItem="Rtq-ca-8mX" secondAttribute="bottom" id="FG7-eF-OQQ"/>
+                            <constraint firstItem="3U8-Pn-7EN" firstAttribute="leading" secondItem="scB-c5-Gzy" secondAttribute="leading" id="FqX-uE-kLE"/>
+                            <constraint firstItem="3U8-Pn-7EN" firstAttribute="trailing" secondItem="scB-c5-Gzy" secondAttribute="trailing" id="NFH-1X-6rr"/>
+                            <constraint firstItem="Rtq-ca-8mX" firstAttribute="leading" secondItem="scB-c5-Gzy" secondAttribute="leading" id="Ozh-5W-DEU"/>
+                            <constraint firstItem="3U8-Pn-7EN" firstAttribute="top" secondItem="Rtq-ca-8mX" secondAttribute="bottom" id="Umk-NY-QCb"/>
+                            <constraint firstItem="Rtq-ca-8mX" firstAttribute="top" secondItem="scB-c5-Gzy" secondAttribute="top" id="WYM-OD-OFS"/>
+                            <constraint firstItem="3U8-Pn-7EN" firstAttribute="top" secondItem="scB-c5-Gzy" secondAttribute="top" constant="56" id="Zv2-KB-rar"/>
+                            <constraint firstItem="Rtq-ca-8mX" firstAttribute="trailing" secondItem="scB-c5-Gzy" secondAttribute="trailing" id="ckc-gf-Zhk"/>
+                            <constraint firstItem="Rtq-ca-8mX" firstAttribute="top" secondItem="scB-c5-Gzy" secondAttribute="top" id="ge9-zZ-Xdn"/>
+                            <constraint firstItem="Rtq-ca-8mX" firstAttribute="leading" secondItem="scB-c5-Gzy" secondAttribute="leading" id="ieG-Y4-SjT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="scB-c5-Gzy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sae-wX-YK1"/>
+                    <connections>
+                        <outlet property="collectionView" destination="3U8-Pn-7EN" id="YTQ-I2-ivI"/>
+                        <outlet property="viewModel" destination="o4k-uk-07x" id="Y0i-rr-vI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OR-Nm-ayC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="o4k-uk-07x" customClass="ListViewModel" customModule="FlickrSearch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="1127.536231884058" y="127.17391304347827"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MmM-8B-5e2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GAD-7Z-LHa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R5Y-nj-ZpA">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dUl-kd-ukp" kind="relationship" relationship="rootViewController" id="fgr-Ls-nrb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2bW-v3-g8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.59999999999999" y="127.28635682158921"/>
+        </scene>
+    </scenes>
+</document>
