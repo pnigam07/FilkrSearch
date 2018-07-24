@@ -16,16 +16,18 @@ class URLPath {
     var baseQueryParameter = ["method":"flickr.photos.search",
                               "api_key":"3e7cc266ae2b0e0d78e279ce8e361736",
                               "format":"json",
-                              "nojsoncallback":"1",
-                              "safe_search":"1"]
+                              "nojsoncallback":"1"]
     var baseURLStringWithParam : String? {
         let queryString = domainPath+"?"+baseQueryParameter.queryString!
         return queryString
     }
     
-   func searchURL(withText text:String) ->(String){
+    func searchURL(withText text:String, andPageNumber pageNumber: Int) ->(String){
         let escapedString = text.stringByAddingPercentEncodingForRFC3986()
-        let urlString = baseURLStringWithParam!+"&text=\(escapedString!)"
+        let queryparam = ["safe_search":pageNumber]
+        
+        let urlString = baseURLStringWithParam!+queryparam.queryString!+"text=\(escapedString!)"
+        
         return urlString
     }
     

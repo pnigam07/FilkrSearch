@@ -12,6 +12,8 @@ class ListViewController: UIViewController {
     
     @IBOutlet var viewModel: ListViewModel!
     @IBOutlet var collectionView : UICollectionView?
+    @IBOutlet var seachBar : UISearchBar?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +65,10 @@ extension ListViewController : UISearchBarDelegate {
 
 extension ListViewController : UICollectionViewDataSource{
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let totalNumberOfcell: Int?
+    var numberOfCell : Int {
+        var totalNumberOfcell = 0
         if let totalImage = viewModel.searchResult {
+           
             if totalImage.count % Constants.numberOfGris == 0 {
                 totalNumberOfcell = totalImage.count / Constants.numberOfGris
             }
@@ -76,11 +79,50 @@ extension ListViewController : UICollectionViewDataSource{
         else {
             totalNumberOfcell = 0
         }
-        
-        return totalNumberOfcell!
+        return totalNumberOfcell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath){
+        print(indexPath)
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(indexPath)
+        if indexPath.row == numberOfCell - 1 {
+            // Last cell is visible
+            print("found index path \(indexPath)")
+            viewModel.fetchNextPage(searchText: (self.seachBar?.text)!, completionBlock: {
+                self.reloadCollectionView()
+            }) { (error) in
+                Utils.displayAlertView(titleText: "Error", message: error.localizedDescription, viewController: self)
+            }
+        }
+    }
+  
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        let totalNumberOfcell: Int?
+//        if let totalImage = viewModel.searchResult {
+//            if totalImage.count % Constants.numberOfGris == 0 {
+//                totalNumberOfcell = totalImage.count / Constants.numberOfGris
+//            }
+//            else{
+//                totalNumberOfcell = (totalImage.count / Constants.numberOfGris) + 1
+//            }
+//        }
+//        else {
+//            totalNumberOfcell = 0
+//        }
+//
+        return numberOfCell
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row - 1 == numberOfCell {
+            // fetch another set of images
+            
+        }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifierForCollectionView,
                                                       for: indexPath) as! ListViewCell

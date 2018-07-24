@@ -105,6 +105,7 @@
                     <navigationItem key="navigationItem" id="Sae-wX-YK1"/>
                     <connections>
                         <outlet property="collectionView" destination="3U8-Pn-7EN" id="YTQ-I2-ivI"/>
+                        <outlet property="seachBar" destination="Rtq-ca-8mX" id="Ppx-R9-32B"/>
                         <outlet property="viewModel" destination="o4k-uk-07x" id="Y0i-rr-vI3"/>
                     </connections>
                 </viewController>

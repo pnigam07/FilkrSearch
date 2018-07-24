@@ -15,18 +15,19 @@ protocol NetworkManagerDelegate {
 
 class NetworkManager {
 
-    func searchImageWithText(seatchText:String){
+    func searchImageWithText(seatchText:String, andPageNumber: Int){
         let networkTask = NetworkTask()
         
-        let urlPath = URLPath().searchURL(withText: seatchText)
+        let urlPath = URLPath().searchURL(withText: seatchText, andPageNumber: andPageNumber)
         networkTask.GET(urlString: urlPath, parameter: nil)
         
     }
     
     func searchImageWithText(seatchText:String,
+                             forPageNumber :Int,
                              successBlock: @escaping (_ successBlock: Data) -> Void, failerBlock:@escaping (Error) -> Void){
         let networkTask = NetworkTask()
-        let urlPath = URLPath().searchURL(withText: seatchText)
+        let urlPath = URLPath().searchURL(withText: seatchText, andPageNumber: forPageNumber)
         networkTask.GET(urlString: urlPath, parameter: nil, successBlock: { (jsonData) in
             successBlock(jsonData)
             
