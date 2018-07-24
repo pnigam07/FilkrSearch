@@ -13,12 +13,15 @@ class ListViewController: UIViewController {
     @IBOutlet var viewModel: ListViewModel!
     @IBOutlet var collectionView : UICollectionView?
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.searchImageWithText(searchText: "kittens",
                                       completionBlock: { (photos) in
              self.reloadCollectionView()
+            
         }) { (error) in
             Utils.displayAlertView(titleText: "Error",
                                    message: error.localizedDescription,
@@ -29,6 +32,7 @@ class ListViewController: UIViewController {
     func reloadCollectionView() {
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
+            self.activityIndicator.stopAnimating()
         }
 
     }
@@ -49,6 +53,7 @@ extension ListViewController : UISearchBarDelegate {
             return
         }
         if (searchBar.text?.count)! > 2 {
+            self.activityIndicator.startAnimating()
             viewModel.searchImageWithText(searchText: searchBar.text!,
                                           completionBlock: { (photos) in
                 self.reloadCollectionView()
