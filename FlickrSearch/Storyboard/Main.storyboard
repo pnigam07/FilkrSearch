@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-ca-8mX">
+                            <searchBar contentMode="redraw" text="" placeholder="Flickr Images" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-ca-8mX">
                                 <rect key="frame" x="0.0" y="64" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -84,6 +84,11 @@
                                     <outlet property="delegate" destination="dUl-kd-ukp" id="9jY-P1-gfv"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nz4-V8-Tw7">
+                                <rect key="frame" x="189" y="350" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.047911949455738068" green="0.58156424760818481" blue="0.90554922819137573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -94,8 +99,10 @@
                             <constraint firstItem="3U8-Pn-7EN" firstAttribute="trailing" secondItem="scB-c5-Gzy" secondAttribute="trailing" id="NFH-1X-6rr"/>
                             <constraint firstItem="Rtq-ca-8mX" firstAttribute="leading" secondItem="scB-c5-Gzy" secondAttribute="leading" id="Ozh-5W-DEU"/>
                             <constraint firstItem="3U8-Pn-7EN" firstAttribute="top" secondItem="Rtq-ca-8mX" secondAttribute="bottom" id="Umk-NY-QCb"/>
+                            <constraint firstItem="nz4-V8-Tw7" firstAttribute="centerX" secondItem="AtX-WW-ucm" secondAttribute="centerX" id="WLq-LZ-7z8"/>
                             <constraint firstItem="Rtq-ca-8mX" firstAttribute="top" secondItem="scB-c5-Gzy" secondAttribute="top" id="WYM-OD-OFS"/>
                             <constraint firstItem="3U8-Pn-7EN" firstAttribute="top" secondItem="scB-c5-Gzy" secondAttribute="top" constant="56" id="Zv2-KB-rar"/>
+                            <constraint firstItem="nz4-V8-Tw7" firstAttribute="centerY" secondItem="AtX-WW-ucm" secondAttribute="centerY" id="bqf-S6-iic"/>
                             <constraint firstItem="Rtq-ca-8mX" firstAttribute="trailing" secondItem="scB-c5-Gzy" secondAttribute="trailing" id="ckc-gf-Zhk"/>
                             <constraint firstItem="Rtq-ca-8mX" firstAttribute="top" secondItem="scB-c5-Gzy" secondAttribute="top" id="ge9-zZ-Xdn"/>
                             <constraint firstItem="Rtq-ca-8mX" firstAttribute="leading" secondItem="scB-c5-Gzy" secondAttribute="leading" id="ieG-Y4-SjT"/>
@@ -104,6 +111,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Sae-wX-YK1"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="nz4-V8-Tw7" id="DkT-6j-Pvl"/>
                         <outlet property="collectionView" destination="3U8-Pn-7EN" id="YTQ-I2-ivI"/>
                         <outlet property="viewModel" destination="o4k-uk-07x" id="Y0i-rr-vI3"/>
                     </connections>
